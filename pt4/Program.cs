@@ -396,3 +396,16 @@ namespace pt3
     }
 }
 */
+namespace pt4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           
+        }
+
+    }
+    public interface 
+
+}
