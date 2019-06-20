@@ -357,8 +357,8 @@ namespace pt2
         }
     }
 }
-*/
-/*
+
+
  using System;
 
 namespace pt3
@@ -395,8 +395,8 @@ namespace pt3
         }
     }
 }
-*/
-/*
+
+
 namespace pt4
 {
     class Program
@@ -484,3 +484,37 @@ namespace pt4
     
 }
 */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    delegate void DelegateType(string str);
+
+    class A
+    {
+        public void Print(string str)
+        {
+            Console.WriteLine(str);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            A Test = new A();
+            DelegateType DelMethod1 = new DelegateType(Test.Print); //C# 1.0 이상에서 사용 가능
+            DelMethod1("Hello World1");
+
+            DelegateType DelMethod2 = Test.Print; //C# 2.0 이상에서 사용 가능
+            DelMethod2("Hello World2");
+        }
+    }
+
+    
+}
+
