@@ -396,16 +396,91 @@ namespace pt3
     }
 }
 */
+/*
 namespace pt4
 {
     class Program
     {
         static void Main(string[] args)
         {
-           
+            Mypaint paint = new Mypaint();
+            Triangle T = new Triangle(3, 4, 5);
+            paint.DrawShape(T);
+
+            Console.WriteLine();
+
+            Rectangle R = new Rectangle(5, 10);
+            paint.DrawShape(R);
+
+            Console.WriteLine();
+
+            CustomShape C = new CustomShape(5, 10, 2, 2);
+            paint.DrawShape(C);
         }
 
     }
-    public interface 
+    public interface IDrawble
+    {
+        void Draw();
+    }
+    public class Mypaint
+    {
+        private List<IDrawble> drawbles = new List<IDrawble>();
 
+        public void DrawShape(IDrawble shape)
+        {
+            drawbles.Add(shape);
+
+            foreach(IDrawble drawable in drawbles)
+            {
+                drawable.Draw();
+            }
+        }
+    }
+
+    public class Triangle : IDrawble
+    {
+        public int A, B, C;
+        public Triangle(int a, int b, int c)
+        {
+            A = a;
+            B = b;
+            C = c;
+        }
+        public void Draw()
+        {
+            Console.WriteLine("Draw triangle({0}, {1}, {2})",A,B,C);
+        }
+    }
+    public class Rectangle : IDrawble
+    {
+        public int Width, Height;
+        public Rectangle(int a, int b)
+        {
+            Width = a;
+            Height = b;
+        }
+        public void Draw()
+        {
+            Console.WriteLine("Draw rectangle({0}, {1})", Width, Height);
+        }
+    }
+    public class CustomShape : IDrawble
+    {
+        public int Width, Height, X, Y;
+        public CustomShape(int a, int b, int c, int d)
+        {
+            Width = a;
+            Height = b;
+            X = c;
+            Y = d;
+        }
+        
+        public void Draw()
+        {
+            Console.WriteLine("Draw customShape({0}, {1}, {2}, {3})", Width, Height, X, Y);
+        }
+    }
+    
 }
+*/
